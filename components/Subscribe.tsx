@@ -4,15 +4,15 @@ import useSWR from 'swr';
 import { trackGoal } from 'fathom-client';
 
 import fetcher from 'lib/fetcher';
-import { Form, IFormState, ISubscribers } from 'lib/types';
+import { Form, FormState, Subscribers } from 'lib/types';
 import SuccessMessage from 'components/SuccessMessage';
 import ErrorMessage from 'components/ErrorMessage';
 import LoadingSpinner from 'components/LoadingSpinner';
 
 export default function Subscribe() {
-  const [form, setForm] = useState<IFormState>({ state: Form.Initial });
+  const [form, setForm] = useState<FormState>({ state: Form.Initial });
   const inputEl = useRef(null);
-  const { data } = useSWR<ISubscribers>('/api/subscribers', fetcher);
+  const { data } = useSWR<Subscribers>('/api/subscribers', fetcher);
   const subscriberCount = new Number(data?.count);
 
   const subscribe = async (e) => {
@@ -66,7 +66,7 @@ export default function Subscribe() {
           className="px-4 py-2 mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full border-gray-300 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
         />
         <button
-          className="flex items-center justify-center absolute right-1 top-1 px-4 font-bold h-8 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
+          className="flex items-center justify-center absolute right-1 top-1 px-4 pt-1 font-medium h-8 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
           type="submit"
         >
           {form.state === Form.Loading ? <LoadingSpinner /> : 'Subscribe'}
@@ -82,7 +82,7 @@ export default function Subscribe() {
             subscriberCount > 0 ? subscriberCount.toLocaleString() : '-'
           } subscribers – `}
           <Link href="/newsletter">
-            <a>31 issues</a>
+            <a>32 issues</a>
           </Link>
         </p>
       )}

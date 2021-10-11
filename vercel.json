@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/fonts/inter-var-latin.woff2",
+      "source": "/fonts/ibm-plex-sans-var.woff2",
       "headers": [
         {
           "key": "Cache-Control",
@@ -18,6 +18,14 @@
       "destination": "/robinson-resume-2019.pdf"
     },
     {
+      "source": "/robinson-resume-2019.pdf",
+      "destination": "https://read.cv/leerob"
+    },
+    {
+      "source": "/resume",
+      "destination": "https://read.cv/leerob"
+    },
+    {
       "source": "/projects",
       "destination": "/about"
     },
@@ -28,6 +36,10 @@
     {
       "source": "/blog/going-serverless-next-firebase-now",
       "destination": "/blog/nextjs-firebase-serverless"
+    },
+    {
+      "source": "/blog/my-essential-software-hardware-list",
+      "destination": "/uses"
     },
     {
       "source": "/blog/vercel-env-variables-size-limit",

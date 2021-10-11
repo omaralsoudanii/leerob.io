@@ -1,5 +1,14 @@
-module.exports = {
-  experimental: { esmExternals: true },
+const { withContentlayer } = require('next-contentlayer');
+
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = withContentlayer()({
+  experimental: {
+    esmExternals: true,
+    swcLoader: true,
+    swcMinify: true
+  },
   reactStrictMode: true,
   images: {
     domains: [
@@ -27,7 +36,7 @@ module.exports = {
 
     return config;
   }
-};
+});
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `
